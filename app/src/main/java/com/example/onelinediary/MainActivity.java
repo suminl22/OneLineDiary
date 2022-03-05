@@ -30,25 +30,23 @@ public class MainActivity extends AppCompatActivity implements OnTabItemSelected
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment1).commit();
 
         bottomNavigation = findViewById(R.id.bottom_navigation);
-        bottomNavigation.setOnNavigationItemSelectedListener(
-                new BottomNavigationView.OnNavigationItemSelectedListener(){
+        bottomNavigation.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item){
                         switch (item.getItemId()){
                             case R.id.tab1:
                                 Toast.makeText(getApplicationContext(),"첫 번째 탭 선택됨",Toast.LENGTH_LONG).show();
                                 getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment1).commit();
-
                                 return true;
+
                             case R.id.tab2:
                                 Toast.makeText(getApplicationContext(),"두 번째 탭 선택됨",Toast.LENGTH_LONG).show();
                                 getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment2).commit();
-
                                 return true;
+
                             case R.id.tab3:
                                 Toast.makeText(getApplicationContext(),"세 번째 탭 선택됨",Toast.LENGTH_LONG).show();
                                 getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment3).commit();
-
                                 return true;
                         }
                         return false;
@@ -61,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements OnTabItemSelected
             bottomNavigation.setSelectedItemId(R.id.tab1);
         } else if(position==1){
             bottomNavigation.setSelectedItemId(R.id.tab2);
-        } else if(position==3){
+        } else if(position==2){
             bottomNavigation.setSelectedItemId(R.id.tab3);
         }
     }
